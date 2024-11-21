@@ -1,3 +1,4 @@
+/* Barra de navegación con degradado */
 .navbar {
     background: linear-gradient(to bottom, #000000 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0) 100%);
     position: fixed;

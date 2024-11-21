@@ -6,7 +6,7 @@
     <title>Registrar Bebida</title>
     <link rel="stylesheet" href="/css/Registro_bebida_css.css">
     <link rel="stylesheet" href="/css/admrestaurante.css">
-
+    <link rel="icon" href="/img/Logo.png" type="image/png">
 </head>
 <body>
 <header class="header">
@@ -42,7 +42,7 @@
             <div>
                 <label for="tipo">Tipo:</label>
                 <select id="tipo" name="tipo">
-                    <option class="controls" th:each="tipo : ${T(com.example.demo.entity.TipoBebida).values()}"
+                    <option class="controls" th:each="tipo : ${T(com.proyecto.PlayApp.entity.TipoBebida).values()}"
                             th:value="${tipo}"
                             th:text="${tipo}"></option>
                 </select>

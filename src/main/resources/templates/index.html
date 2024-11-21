@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Font Awesome -->
     <link rel="stylesheet" href="/css/inicio.css"> <!-- Enlaza el nuevo archivo CSS -->
+    <link rel="icon" href="/img/Logo.png" type="image/png">
 </head>
 <body>
 
@@ -16,7 +17,7 @@
     <nav class="navbar navbar-expand-lg navbar-custom shadow-sm fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="/img/Logo_oficial.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                <img th:src="@{/img/Logo.png}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
                 <span class="ms-2 fw-bold">PlayApp</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11" aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,13 +41,13 @@
                         <a class="nav-link text-light" href="/contacto">Contacto</a>
                     </li>
                 </ul>
-                <div class="d-flex col-lg-3 justify-content-lg-end align-items-center">
-                    <a class="nav-link text-light position-relative me-2" href="/carrito">
+                <div class="d-flex align-items-center">
+                    <span class="navbar-text text-light me-3">Hola, <span th:text="${nombreUsuario}">Usuario</span></span>
+                    <a class="btn btn-outline-light me-2" href="/auth/logout">Log Out</a>
+                    <a class="nav-link text-light position-relative" href="/carrito">
                         <i class="fa fa-shopping-cart"></i>
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" th:text="${carrito != null ? carrito.items.size() : 0}">0</span>
                     </a>
-                    <span class="navbar-text text-light me-3">Hola, <span th:text="${nombreUsuario}">Usuario</span></span>
-                    <a class="btn btn-outline-light me-2" href="/auth/logout">Log Out</a>
                 </div>
             </div>
         </div>
@@ -64,20 +65,20 @@
     <div class="carousel-inner">
         <div class="carousel-item active" style="background-image: url('/img/Burguer.jpg');">
             <div class="carousel-caption d-none d-md-block">
-                <h5>Primera Imagen</h5>
-                <p>Descripción de la primera imagen.</p>
+                <h5>Hamburguesa de la casa</h5>
+                <p></p>
             </div>
         </div>
         <div class="carousel-item" style="background-image: url('/img/Pescado.jpg');">
             <div class="carousel-caption d-none d-md-block">
-                <h5>Segunda Imagen</h5>
-                <p>Descripción de la segunda imagen.</p>
+                <h5>Mojarra</h5>
+                <p></p>
             </div>
         </div>
         <div class="carousel-item" style="background-image: url('/img/Bebidas.jpeg');">
             <div class="carousel-caption d-none d-md-block">
-                <h5>Tercera Imagen</h5>
-                <p>Descripción de la tercera imagen.</p>
+                <h5>Bebidas</h5>
+                <p></p>
             </div>
         </div>
     </div>
@@ -92,7 +93,7 @@
 </div>
 
 <!-- Descripción de la Página -->
-<section id="description" class="py-5 text-center">
+<section id="description" class="py-5 text-center" style="position: relative;">
     <div class="container">
         <h2>Bienvenido a PlayApp</h2>
         <p>
@@ -104,6 +105,7 @@
     </div>
 </section>
 
+
 <!-- Sección de Categorías Populares -->
 <section class="categories py-5 text-center">
     <div class="container">
@@ -111,20 +113,20 @@
         <div class="row">
             <div class="col-md-4">
                 <a href="/comida">
-                    <img src="/img/imagen6.jpg" alt="Platos de mar" class="img-fluid rounded">
-                    <h4 class="mt-2">Platos de Mar</h4>
+                    <img src="/img/Langosta.png" alt="Comida" class="img-fluid rounded">
+                    <p class="mt-2">Comida</p>
                 </a>
             </div>
             <div class="col-md-4">
                 <a href="/bebida">
-                    <img src="/img/imagen4.jpg" alt="Comida rápida" class="img-fluid rounded">
-                    <h4 class="mt-2">Comida Rápida</h4>
+                    <img src="/img/Bebida.png" alt="Bebidas" class="img-fluid rounded">
+                    <p class="mt-2">Bebidas</p>
                 </a>
             </div>
             <div class="col-md-4">
                 <a href="/servicio">
-                    <img src="/img/imagen5.jpg" alt="Vegetariana" class="img-fluid rounded">
-                    <h4 class="mt-2">Vegetariana</h4>
+                    <img src="/img/Moto.png" alt="Moto Acuatica" class="img-fluid rounded">
+                    <p class="mt-2">Servicios</p>
                 </a>
             </div>
         </div>
@@ -149,7 +151,7 @@
 </section>
 
 <!-- Sección de Mapa de Ubicación -->
-<section class="location py-5 text-center">
+<section id="ubicate" class="location py-5 text-center">
     <div class="container">
         <h2 class="mb-4">Ubicación</h2>
         <p>Visítanos o recibe tu pedido en estas zonas:</p>
@@ -160,8 +162,9 @@
             </iframe>
         </div>
     </div>
+</section>
 
-    <!-- Sección de Opiniones con Calificación -->
+<!-- Sección de Opiniones con Calificación -->
 </section>
 <section class="reviews py-5 bg-light text-center">
     <div class="container">
@@ -187,7 +190,7 @@
 </section>
 
 <!-- Footer -->
-<footer class="py-4 bg-dark text-white text-center">
+<footer class="py-4 text-white text-center">
     <p>&copy; 2024 PlayApp. Todos los derechos reservados.</p>
     <ul class="list-inline">
         <li class="list-inline-item"><a href="#" class="text-white">Términos y condiciones</a></li>

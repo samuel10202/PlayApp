@@ -1,3 +1,4 @@
+Css
 /* Estilos generales */
 body {
     font-family: 'Poppins', sans-serif;
@@ -5,7 +6,6 @@ body {
     color: #fff; /* Texto blanco para contraste */
     margin: 0;
     padding: 0;
-    background-image: url('/img/Estrellas.jpg!d'); /* Ajusta la ruta según la ubicación */
     background-size: cover; /* Asegura que la imagen cubra todo el fondo */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-position: center center; /* Centra la imagen */
@@ -20,6 +20,7 @@ a:hover {
     color: #0056b3;
 }
 
+/* Barra de navegación con degradado */
 .navbar {
     background: linear-gradient(to bottom, #000000 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0) 100%);
     position: fixed;
@@ -123,6 +124,23 @@ a:hover {
 }
 
 /* Sección de descripción */
+
+/* Curva hacia abajo después de la sección */
+#description::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 100%; /* Coloca la curva al final de la sección */
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: #000; /* Color de la curva, ajusta según tu diseño */
+    clip-path: ellipse(50% 25% at 50% 0%);
+    z-index: 1; /* Asegúrate de que la curva esté sobre el siguiente contenido */
+}
+
+
+
 #description {
     background-color: #000; /* Fondo negro */
     color: #fff; /* Texto blanco para contraste */
@@ -142,30 +160,39 @@ a:hover {
     margin: 0 auto;
 }
 
+
 /* Sección de categorías populares */
 .categories {
-    background: url('/img/fondo-categorias.jpg') no-repeat center center;
+    background: url('/img/FondoTierra.jpg') no-repeat center center;
     background-size: cover;
     padding: 4rem 0;
-    color: #fff;
+    color:  #000;
     text-align: center;
 }
 
 .categories img {
     transition: transform 0.3s ease-in-out;
-    border-radius: 10px;
+    border-radius: 30px;
 }
 
 .categories img:hover {
     transform: scale(1.05);
 }
 
-.categories h4 {
-    margin-top: 10px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #007bff;
+.categories p {
+    margin-top: 15px;
+    font-size: 25px;
+    font-weight: 500;
+    color:  #000;
 }
+
+.categories h2 {
+    font-size: 36px; /* Cambia el tamaño del texto, ajusta según prefieras */
+    font-weight: 700; /* Define el grosor del texto */
+    color: #000; /* Cambia el color si es necesario */
+    margin-bottom: 20px; /* Ajusta el espacio inferior */
+}
+
 
 
 /* Sección de ofertas del día */
@@ -237,21 +264,99 @@ a:hover {
 }
 
 /* Sección de mapa de ubicación */
+
+
+
+.location {
+    position: relative;
+    background-image: url('/img/ArenaDemas.jpg'); /* Ruta de la imagen de fondo */
+    background-size: cover; /* Asegura que la imagen cubra toda la sección */
+    background-position: center center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    padding: 40px 20px; /* Ajusta el espacio dentro de la sección */
+}
+
+/* Curva hacia abajo después de la sección */
+#ubicate::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 100%; /* Coloca la curva al final de la sección */
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: inherit;  /* Color de la curva, ajusta según tu diseño */
+    clip-path: ellipse(50% 50% at 50% 0%);
+    z-index: 1; /* Asegúrate de que la curva esté sobre el siguiente contenido */
+}
+
 .location iframe {
     border: none;
     border-radius: 10px;
+    width: 100%; /* Asegura que el iframe ocupe todo el ancho disponible */
+    height: 400px; /* Ajusta la altura del iframe (cambia según lo necesites) */
+}
+/* Estilo para el título de la sección */
+.location h2 {
+    font-size: 36px; /* Cambia el tamaño del texto del título */
+    font-weight: 700; /* Grosor del texto */
+    color: #000; /* Color del texto, ajusta según el diseño */
+    margin-bottom: 20px; /* Espacio inferior */
 }
 
+/* Estilo para el subtítulo (párrafo) */
+.location p {
+    font-size: 25px; /* Cambia el tamaño del texto del subtítulo */
+    font-weight: 500; /* Grosor del texto */
+    color: #000; /* Color del texto, ajusta según el diseño */
+    margin-bottom: 30px; /* Espacio inferior */
+}
+
+
 /* Sección de opiniones */
+.reviews {
+    position: relative;
+    background-image: url('/img/Piedras.jpg'); /* Ruta de la imagen de fondo */
+    background-size: cover; /* La imagen cubre todo el fondo */
+    background-position: center center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    padding: 40px 20px; /* Ajusta el espacio dentro de la sección */
+    color: #fff; /* Color de texto blanco para contraste */
+}
+
+/* Estilo del título de Opiniones Destacadas */
+.reviews h2 {
+    font-size: 36px; /* Cambia el tamaño del título, ajusta según tu preferencia */
+    font-weight: 700; /* Cambia el grosor de la fuente si lo deseas */
+    text-align: center; /* Centra el texto */
+    max-width: 80%; /* Ajusta el ancho máximo del título */
+    margin: 0 auto 20px; /* Centra y añade un margen inferior */
+}
+
+/* Filtro oscuro */
+.reviews::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Fondo oscuro con opacidad */
+    z-index: -1; /* Coloca el filtro detrás del contenido */
+}
+
+
+/* Estilo de las tarjetas de reseñas */
 .reviews .review-card {
     margin-bottom: 20px;
-    background-color: #fff;
+    background-color: #fff; /* Fondo blanco para las tarjetas */
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: #333; /* Texto negro para contraste */
+    color: #333; /* Texto negro dentro de las tarjetas */
 }
 
+/* Estilos adicionales para las reseñas */
 .reviews .blockquote {
     margin: 0;
 }
@@ -259,12 +364,15 @@ a:hover {
 .reviews .stars span {
     font-size: 20px;
     margin-right: 2px;
-    color: #f1c40f;
+    color: #f1c40f; /* Color dorado para las estrellas */
 }
+
+
+
 
 /* Footer */
 footer {
-    background-color: #343a40;
+    background-color: #000;
     color: #ffffff;
     padding: 20px 0;
     text-align: center;

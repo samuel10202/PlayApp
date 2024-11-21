@@ -1,35 +1,80 @@
+productos.css
 /* Estilo de la barra de navegación: Define el diseño y estilo del menú de navegación en la parte superior de la página */
 body {
+    background-color
     font-family: 'Poppins', sans-serif; /* Aplica la fuente 'Poppins' a todo el contenido de la página */
 }
 
-header nav {
-    background-color: #f8f9fa; /* Fondo claro para la barra de navegación */
-    padding: 1rem; /* Espaciado interno de la barra de navegación */
+/* Barra de navegación con degradado */
+.navbar {
+    background: linear-gradient(to bottom, #000000 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0) 100%);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    color: #fff; /* Texto blanco */
+    border: none; /* Elimina cualquier borde */
+    transition: background 0.3s ease; /* Suaviza la transición de fondo */
 }
 
-header nav ul {
-    list-style: none; /* Elimina los puntos de lista predeterminados en la barra de navegación */
-    margin: 0; /* Elimina márgenes en la lista */
-    padding: 0; /* Elimina el relleno de la lista */
-    display: flex; /* Alinea los elementos de la lista en una sola fila */
-    justify-content: center; /* Centra horizontalmente la lista dentro de la barra de navegación */
+/* Opcional: Efecto de fondo cuando se hace scroll */
+.navbar.scrolled {
+    background: rgba(0,0,0,0.8);
 }
 
-header nav ul li {
-    margin-right: 20px; /* Espaciado entre los elementos de la lista */
+.navbar-brand {
+    color: #fff;
+    font-weight: bold;
 }
 
-header nav ul li a {
-    font-size: 1.2rem; /* Tamaño de la fuente de los enlaces en la barra de navegación */
-    text-decoration: none; /* Elimina subrayados en los enlaces */
-    color: #333; /* Color del texto de los enlaces en la barra de navegación */
-    font-weight: 500; /* Grosor medio de la fuente en los enlaces */
+/* Enlaces de la barra de navegación */
+.navbar-nav {
+    display: flex;
+    justify-content: center; /* Centra los enlaces */
+    flex-grow: 1; /* Asegura que ocupen todo el espacio disponible */
 }
 
-header nav ul li a:hover {
-    color: #007bff; /* Cambia el color del enlace al pasar el cursor por encima */
+.navbar-nav .nav-link {
+    color: #fff;
+    font-weight: 500;
+    padding: 8px 16px;
+    text-transform: uppercase;
 }
+
+.navbar-nav .nav-link.active {
+    font-weight: bold;
+    color: #f8f9fa;
+}
+
+/* Hover de los enlaces */
+.navbar-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Botones de Log Out */
+.btn-outline-light {
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+.btn-outline-light:hover {
+    background-color: #ffffff;
+    color: #343a40;
+}
+
+/* Ajuste para los elementos a la izquierda (usuario, log out, carrito) */
+.d-flex.align-items-center {
+    justify-content: flex-start; /* Alineación a la izquierda de los botones de usuario, log out y carrito */
+}
+
+.navbar-text, .btn-outline-light, .nav-link.position-relative {
+    margin-right: 15px; /* Espaciado entre los elementos */
+}
+
 
 /* Sección principal de Compra de Comida: Estilos aplicados a la sección 'Compra de Comida' */
 #food-shop {
@@ -76,9 +121,6 @@ header nav ul li a:hover {
 }
 
 #food-shop .card-img-top {
-    width: 100%;
-    height: 200px; /* Ajusta esta altura según tus necesidades */
-    object-fit: cover; /* Esto asegura que la imagen se ajuste al contenedor */
     border-bottom: 1px solid #e7e7e7; /* Línea separadora entre la imagen y el cuerpo de la tarjeta */
 }
 
@@ -90,32 +132,4 @@ header nav ul li a:hover {
     font-size: 1.5rem; /* Tamaño de la fuente del título de la tarjeta */
     font-weight: 600; /* Grosor medio de la fuente del título */
     margin-bottom: 0.5rem; /* Espaciado inferior del título para separarlo del siguiente contenido */
-}
-
-#food-shop .card-text {
-    font-size: 1rem; /* Tamaño de la fuente del texto dentro de las tarjetas */
-    color: #666; /* Color gris para el texto de la tarjeta */
-}
-
-/* Estilos de los botones dentro de las tarjetas */
-#food-shop .btn-primary {
-    background-color: #007bff; /* Color azul para los botones primarios */
-    border: none; /* Elimina bordes del botón */
-    transition: background-color 0.3s ease; /* Transición suave en el cambio de color al hacer hover */
-}
-
-#food-shop .btn-primary:hover {
-    background-color: #0056b3; /* Color azul más oscuro cuando se hace hover en el botón */
-}
-
-/* Estilos adicionales de navegación */
-.nav-link a:hover {
-    background-color: #0056b3; /* Color de fondo azul oscuro cuando se pasa el cursor sobre los enlaces de navegación */
-    border-radius: 5px; /* Bordes ligeramente redondeados en los enlaces de navegación cuando se hace hover */
-}
-
-.card-img-top {
-    width: 100%;
-    height: 200px; /* Ajusta esta altura según tus necesidades */
-    object-fit: cover; /* Esto asegura que la imagen se ajuste al contenedor */
 }

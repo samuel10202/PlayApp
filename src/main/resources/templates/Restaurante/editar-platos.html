@@ -5,7 +5,7 @@
     <title>Registrar Plato</title>
     <link rel="stylesheet" href="/css/Registro_plato_css.css">
     <link rel="stylesheet" href="/css/admrestaurante.css">
-
+    <link rel="icon" href="/img/Logo.png" type="image/png">
 </head>
 <body>
 <header class="header">
@@ -41,7 +41,7 @@
             <div>
                 <label for="tipo">Tipo:</label>
                 <select id="tipo" name="tipo">
-                    <option class="controls" th:each="tipoPlato : ${T(com.example.demo.entity.TipoPlato).values()}"
+                    <option class="controls" th:each="tipoPlato : ${T(com.proyecto.PlayApp.entity.TipoPlato).values()}"
                             th:value="${tipoPlato}"
                             th:text="${tipoPlato}"></option>
                 </select>

@@ -1,5 +1,6 @@
 package com.proyecto.PlayApp.Controller.Reseña;
 
+import com.proyecto.PlayApp.entity.Carrito;
 import com.proyecto.PlayApp.entity.Review;
 import com.proyecto.PlayApp.entity.Usuario;
 import com.proyecto.PlayApp.repository.ReviewRepository;
@@ -23,6 +24,18 @@ public class ReviewController {
         Usuario usuario = (Usuario) session.getAttribute("usuarioLogueado");
         if (usuario != null) {
             model.addAttribute("nombreUsuario", usuario.getNombre_completo());
+        }
+
+        Carrito carrito = (Carrito) session.getAttribute("carrito");
+        if (carrito != null) {
+            model.addAttribute("carrito", carrito);
+            double total = carrito.getItems().stream()
+                    .mapToDouble(item -> item.getCantidad() * (
+                            item.getPlato() != null ? item.getPlato().getPrecio() :
+                                    item.getBebida() != null ? item.getBebida().getPrecio() :
+                                            item.getServicio().getPrecio()))
+                    .sum();
+            model.addAttribute("totalCarrito", total);
         }
     }
 
